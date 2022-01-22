@@ -12,7 +12,7 @@ function NewsItem(props) {
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">{description}</p>
                     <a href={newsurl} rel="noreferrer" target="_blank" className="btn btn-primary">Read More</a>
-                    <p className="card-text my-2" >Uploaded: {publish.substring(0,9)}, {publish.substring(12,16)}</p>
+                    <p className="card-text my-2" >Uploaded: {new Date(publish).toGMTString()} </p>
                 </div>
             </div>
         </div>

@@ -65,10 +65,15 @@ function News(props) {
 
     }
 
+    function capitalizeFirstLetter(element)
+    {
+        return element.charAt(0).toUpperCase()+element.slice(1);
+    }
+
     return (
         <>
             <div className="container my-4 ">
-                <h2 className=" text-center mb-3">NewsBite-TOP HEADLINES</h2>
+                <h2 className=" text-center mb-3">NewsBite-Top {capitalizeFirstLetter(props.category)} Headlines</h2>
 
                 {loading && <Spinner />}
                 <div className="row">{!loading && article.map((element) => {

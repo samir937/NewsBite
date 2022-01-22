@@ -24,17 +24,17 @@ function App() {
         onLoaderFinished={() => setProgress(0)} />
 
         <Switch>
-          {/* <Route path="/about">
-            <About />
+          {/* <Route path="/about"> 
+            <About />cd 
           </Route> */}
-          <Route exact path="/"><News setprogress={setProgress}key="general" category="general" country="in" page="1" pagesize="15" /></Route>
-          <Route exact path="/general"><News setprogress={setProgress}key="general" category="general" country="in" page="1" pagesize="15"/></Route>
-          <Route exact path="/entertainment"><News setprogress={setProgress}key="general" category="entertainment" country="in"pagesize="15" page="1" /></Route>
-          <Route exact path="/sports"><News setprogress={setProgress}key="sports" category="sports" country="in"pagesize="15"  page="1" /></Route>
-          <Route exact path="/health"><News setprogress={setProgress}key="health" category="health" country="in"pagesize="15"  page="1" /></Route>
-          <Route exact path="/technology"><News setprogress={setProgress}key="technology" category="technology" pagesize="15" country="in" page="1" /></Route>
-          <Route exact path="/business"><News setprogress={setProgress}key="business" category="business" pagesize="15" country="in" page="1" /></Route>
-          <Route exact path="/science"><News setprogress={setProgress}key="science" category="science" pagesize="15" country="in" page="1" /></Route>
+          <Route exact path="/"><News setprogress={setProgress} key="general" category="general" country="in" page="1" pagesize="15" /></Route>
+          <Route exact path="/general"><News setprogress={setProgress} key="general" category="general" country="in" page="1" pagesize="15"/></Route>
+          <Route exact path="/entertainment"><News setprogress={setProgress} key="general" category="entertainment" country="in"pagesize="15" page="1" /></Route>
+          <Route exact path="/sports"><News setprogress={setProgress} key="sports" category="sports" country="in"pagesize="15"  page="1" /></Route>
+          <Route exact path="/health"><News setprogress={setProgress} key="health" category="health" country="in"pagesize="15"  page="1" /></Route>
+          <Route exact path="/technology"><News setprogress={setProgress} key="technology" category="technology" pagesize="15" country="in" page="1" /></Route>
+          <Route exact path="/business"><News setprogress={setProgress} key="business" category="business" pagesize="15" country="in" page="1" /></Route>
+          <Route exact path="/science"><News setprogress={setProgress} key="science" category="science" pagesize="15" country="in" page="1" /></Route>
           
         </Switch>
 
