@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+  import React, { useState, useEffect } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
@@ -11,16 +11,18 @@ function News(props) {
     const [totalsize, settotalsize] = useState(0);
 
     const updateNews = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&page=${page}
-        &pageSize=${props.pagesize}&apiKey=31560fffa76d4075a700eb64b9b0437e`;
+    
+        let url=`https://gnews.io/api/v4/top-headlines?token=6d139d143ab733cb6bc054c90e5ecb28&q=${props.category}&country=${props.country
+    }&page=${page}&lang=en&pageSize=${props.pagesize}`;
         setloading(true);
         props.setprogress(10);
         let data = await fetch(url);
         props.setprogress(30);
         let parsedData = await data.json();
         props.setprogress(70);
+        console.log(parsedData)
         setArticle(parsedData.articles);
-        settotalsize(parsedData.totalResults);
+        settotalsize(parsedData.totalArticles);
         props.setprogress(100);
         setloading(false);
 
@@ -33,8 +35,12 @@ function News(props) {
 
 
     const handlePrevClick = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&page=${page - 1}
-        &pageSize=${props.pagesize}&apiKey=31560fffa76d4075a700eb64b9b0437e`;
+
+        // let url=`https://gnews.io/api/v4/top-headlines?token=6d139d143ab733cb6bc054c90e5ecb28&q=${props.category}&country=${props.country}&page=${page-1}&lang=en&pageSize=${props.pagesize}`
+        
+        let url=`https://gnews.io/api/v4/top-headlines?token=6d139d143ab733cb6bc054c90e5ecb28&q=${props.category}&country=${props.country
+    }&page=${page-1}&lang=en&pageSize=${props.pagesize}`;
+        
         setloading(true);
         props.setprogress(10);
         let data = await fetch(url);
@@ -42,15 +48,16 @@ function News(props) {
         let parsedData = await data.json();
         props.setprogress(70);
         setArticle(parsedData.articles);
-        settotalsize(parsedData.totalResults);
+        settotalsize(parsedData.totalArticles);
         setpage(page - 1);
         props.setprogress(100);
         setloading(false);
     }
     const handleNexClick = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&page=${page + 1}
-        &pageSize=${props.pagesize}&apiKey=31560fffa76d4075a700eb64b9b0437e`;
-
+        
+        let url=`https://gnews.io/api/v4/top-headlines?token=6d139d143ab733cb6bc054c90e5ecb28&q=${props.category}&country=${props.country
+    }&page=${page+1}&lang=en&pageSize=${props.pagesize}`;
+        
         setloading(true);
         props.setprogress(10);
         let data = await fetch(url);
@@ -58,7 +65,7 @@ function News(props) {
         let parsedData = await data.json();
         props.setprogress(70);
         setArticle(parsedData.articles);
-        settotalsize(parsedData.totalResults);
+        settotalsize(parsedData.totalArticles);
         setpage(page + 1);
         props.setprogress(100);
         setloading(false);
@@ -79,7 +86,7 @@ function News(props) {
                 <div className="row">{!loading && article.map((element) => {
                     return <div className="col-md-4" key={element.url}>
                         <NewsItem title={element.title || undefined } description={element.description || undefined} 
-                        publish={element.publishedAt || undefined} imageurl={element.urlToImage || undefined } newsurl={element.url || undefined} />
+                        publish={element.publishedAt || undefined} imageurl={element.image|| undefined } newsurl={element.url || undefined} />
                     </div>
                 })
 

@@ -17,7 +17,7 @@ function Navbar() {
                     <div className="pull right" id="navbarSupportedContent" style={{fontSize:"19px"}}>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/general">Home</Link>
+                                <Link className="nav-link active" aria-current="page" to="/breaking-news">Home</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/business">Business</Link>
